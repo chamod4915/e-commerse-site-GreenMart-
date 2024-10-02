@@ -1,0 +1,7 @@
+create database ecommerce;
+use ecommerce;
+create table user(userId int not null primary key auto_increment,userName varchar(50),userEmail varchar(50),userPassword varchar(50),userPhone varchar(50),userPic varchar(50),userAddress varchar(50),userType varchar(50));
+create table category(categoryId int not null primary key auto_increment,categoryTitle varchar(50),categoryDescription varchar(50));
+create table cart(cartId int not null primary key auto_increment,productId int,userId int,quantity int,price int);
+create table orders(orderId int not null primary key auto_increment,userId int,productId int,quantity int,price int,orderDate varchar(50),deliveryDate varchar(50));
+create table product(productId int not null primary key auto_increment,productTitle varchar(50),productDescription varchar(50),productPhoto varchar(50),productPrice varchar(50),productDiscount varchar(50),productQuantity varchar(50),categoryId int,foreign key(categoryId) references category(categoryId));
